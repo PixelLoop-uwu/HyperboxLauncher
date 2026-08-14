@@ -1,0 +1,84 @@
+{
+  "id": "example-modpack",
+  "name": "Example Modpack",
+  "game_version": "1.18.2",
+  "java": {
+    "major_version": "17"
+  },
+  "launch": {
+    "main_class": "net.minecraft.client.main.Main",
+    "asset_index_name": "1.18.2",
+    "jvm_args": [
+      "-Xmx${selected_ram}M",
+      "-Dfile.encoding=UTF-8",
+      {
+        "value": "-Djava.library.path=${natives_directory}",
+        "os": "Windows"
+      }
+    ],
+    "game_args": [
+      "--username",
+      "${auth_player_name}",
+      {
+        "value": "--fullscreen",
+        "os": "Linux"
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "client/example-modpack-client.jar",
+      "sha1": "d41d8cd98f00b204e9800998ecf8427e",
+      "size": 12345678,
+      "url": "https://cdn.example.com/modpacks/example-modpack/client.jar",
+      "type": "client",
+      "is_module": false,
+      "os": null
+    },
+    {
+      "path": "libraries/com/example/lib-example-1.0.jar",
+      "sha1": "3b5d5c3712955042212316173ccf37be",
+      "size": 234567,
+      "url": "https://repo.example.com/com/example/lib-example-1.0.jar",
+      "type": "library",
+      "is_module": false,
+      "os": null
+    },
+    {
+      "path": "libraries/com/example/module-example-1.0.jar",
+      "sha1": "9e107d9d372bb6826bd81d3542a419d6",
+      "size": 98765,
+      "url": "https://repo.example.com/com/example/module-example-1.0.jar",
+      "type": "library",
+      "is_module": true,
+      "os": null
+    },
+    {
+      "path": "native/windows/native-lib.dll",
+      "sha1": "e4d909c290d0fb1ca068ffaddf22cbd0",
+      "size": 54321,
+      "url": "https://cdn.example.com/native/windows/native-lib.dll",
+      "type": "native",
+      "is_module": false,
+      "os": "Windows"
+    },
+    {
+      "path": "assets/indexes/1.18.2.json",
+      "sha1": "45c48cce2e2d7fbdea1afc51c7c6ad26",
+      "size": 1024,
+      "url": "https://resources.example.com/indexes/1.18.2.json",
+      "type": "asset",
+      "is_module": false,
+      "os": null
+    },
+    {
+      "path": "java/jdk-17/bin/java",
+      "sha1": "8277e0910d750195b448797616e091ad",
+      "size": 123456,
+      "url": "https://runtimes.example.com/java/jdk-17.tar.gz",
+      "type": "java",
+      "is_module": false,
+      "os": null
+    }
+  ]
+}
