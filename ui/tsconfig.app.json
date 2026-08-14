@@ -27,5 +27,5 @@
     }
   },
 
-  "include": ["src", "src/api/api.ts", "src/components/.modpack_main"]
+  "include": ["src"]
 }

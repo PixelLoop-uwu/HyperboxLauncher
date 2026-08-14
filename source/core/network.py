@@ -47,7 +47,9 @@ class HttpClient:
       response.raise_for_status()
       return response.json()
     except httpx.HTTPStatusError as e:
-      logger.error(f"HTTP Error {e.response.status_code} on {method} {url}: {e.response.text}")
+      body = (e.response.text or "")
+      short_body = (body[:500] + "...") if len(body) > 500 else body
+      logger.error(f"HTTP Error {e.response.status_code} on {method} {url}: {short_body}")
       raise RuntimeError(f"API request failed with status {e.response.status_code}") from None
     except httpx.RequestError as e:
       logger.error(f"Network error on {method} {url}: {e}")

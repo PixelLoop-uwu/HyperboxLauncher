@@ -20,7 +20,7 @@ class Consts(BaseModel):
     "base_folder": MAIN_DIR,
   }
 
-  MAX_CONCURRENT_DOWNLOADS = 5
-  MAX_CONCURRENT_HASHES = 3
+  MAX_CONCURRENT_DOWNLOADS: int = 5
+  MAX_CONCURRENT_HASHES: int = 3
 
 consts = Consts()

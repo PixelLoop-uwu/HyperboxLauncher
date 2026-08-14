@@ -1,0 +1,16 @@
+2026-08-14 18:29:33 | WARNING  | [my_app] | modules.auth.service:login_perform:39 - Login failed: invalid credentials
+2026-08-14 18:30:01 | WARNING  | [my_app] | logging:callHandlers:1706 - Port 8228 is in use: [Errno 98] Адрес уже используется
+2026-08-14 18:30:02 | WARNING  | [my_app] | modules.auth.service:login_perform:39 - Login failed: invalid credentials
+2026-08-14 18:32:17 | WARNING  | modules.auth.service:login_perform:39 - Login failed: invalid credentials
+2026-08-14 18:32:54 | WARNING  | logging:callHandlers:1706 - Port 8228 is in use: [Errno 98] Адрес уже используется
+2026-08-14 18:32:55 | WARNING  | modules.auth.service:login_perform:39 - Login failed: invalid credentials
+2026-08-14 18:33:46 | WARNING  | modules.auth.service:login_perform:39 - Login failed: invalid credentials
+2026-08-14 18:34:28 | WARNING  | logging:callHandlers:1706 - Port 8228 is in use: [Errno 98] Адрес уже используется
+2026-08-14 18:34:29 | WARNING  | modules.auth.service:login_perform:39 - Login failed: invalid credentials
+2026-08-14 18:34:46 | WARNING  | logging:callHandlers:1706 - Port 8228 is in use: [Errno 98] Адрес уже используется
+2026-08-14 18:34:46 | WARNING  | logging:callHandlers:1706 - Port 8229 is in use: [Errno 98] Адрес уже используется
+2026-08-14 18:34:46 | WARNING  | modules.auth.service:login_perform:39 - Login failed: invalid credentials
+2026-08-14 18:35:35 | WARNING  | modules.auth.service:login_perform:39 - Login failed: invalid credentials
+2026-08-14 18:35:38 | ERROR    | core.network:_request:55 - Network error on POST /auth/login: All connection attempts failed
+2026-08-14 18:35:38 | ERROR    | logging:callHandlers:1706 - RuntimeError: Network error occurred during POST /auth/login
+

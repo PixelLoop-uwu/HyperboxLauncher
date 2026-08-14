@@ -1,4 +1,5 @@
 import webview
+import sys
 
 from core.consts import consts
 from shared.utils.logger import setup_logging
@@ -8,10 +9,11 @@ from web_bridge import WebViewApi
 
 def main():
   setup_logging("DEBUG" if consts.DEBUG else "INFO")
+  sys.tracebacklimit = 0
 
   os_type = get_os_type()
-  url = "http://localhost:5173/" if consts.DEBUG else "web/index.html"
-  gui_backend = "qt" if os_type == "linux" else None
+  url = "http://localhost:5173/login" if consts.DEBUG else "web/index.html"
+  gui_backend = "qt" if os_type == "Linux" else None
 
   api = WebViewApi()
 
@@ -24,7 +26,7 @@ def main():
     min_size=(1050, 580),
     resizable=False,
     background_color="#0b0b10",
-    frameless=(os_type != "darwin")
+    frameless=(os_type not in ("Darwin", "Linux"))
   )
 
   api.set_window(window) # type: ignore

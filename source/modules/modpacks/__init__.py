@@ -1,4 +1,4 @@
 from .service import ModpacksService
-from .progress import DownloadProgressTracker
+from .progress import DownloadProgressNotifier
 
-__all__ = ["ModpacksService", "DownloadProgressTracker"]
+__all__ = ["ModpacksService", "DownloadProgressNotifier"]
