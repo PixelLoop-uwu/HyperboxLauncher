@@ -1,6 +1,6 @@
 # HyperBox Launcher
 
-HyperBox Launcher is a desktop launcher for Minecraft servers that distribute custom modpacks. The project has a Python backend that manages authentication, download synchronization, Java and native setup, and game launch orchestration, while the front end is a React + TypeScript UI rendered through `pywebview`.
+HyperBox Launcher is a desktop launcher for Minecraft servers that distribute custom modpacks. The project has a Python backend that manages authentication, download synchronization, Java and native setup, and game launch orchestration, while the frontend is a React + TypeScript UI rendered through `pywebview`.
 
 This is not a generic game launcher template. The codebase is structured around a custom server-driven modpack ecosystem: the launcher fetches modpack metadata from an API, validates file integrity, downloads only the files required for the selected Java version and platform, and launches the game with the correct classpath, JVM arguments, and session token.
 
@@ -259,7 +259,7 @@ uv sync
 ### Front-end setup
 
 ```bash
-cd launcher/ui
+cd ui
 npm install
 npm run dev
 ```
@@ -287,7 +287,3 @@ This makes local development straightforward: the Python desktop shell hosts the
 - The launcher stores local metadata so repeated launches do not re-download unchanged files.
 - The system prepares OS-specific native libraries and classpath entries dynamically.
 - The UI and backend are tightly coupled through `pywebview`; all launcher actions are triggered from the Python side, not from a browser-only runtime.
-
-## Current status
-
-This repository is a backend-driven launcher prototype focused on custom modpack delivery, installation, and game launch orchestration. The project is structured for extensibility: adding a new modpack source, auth backend, or launch variants is done through the service layer and the manifest model rather than by hardcoding behavior into the UI.
