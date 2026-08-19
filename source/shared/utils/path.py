@@ -4,7 +4,7 @@ from loguru import logger
 
 from shared.schemas.system import OSType
 from shared.utils.system import get_os_type
-from shared.schemas.modpack import FileManifest, FileType
+from shared.schemas.modpacks import FileManifest, FileType
 
 
 def get_default_directory() -> Path:

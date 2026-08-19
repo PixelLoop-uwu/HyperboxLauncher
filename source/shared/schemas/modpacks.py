@@ -1,9 +1,36 @@
 from enum import Enum
 from pathlib import Path
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
+from pydantic.alias_generators import to_camel
 
 from shared.utils.system import get_os_type
 from shared.schemas.system import OSType
+
+
+class ServerInfo(BaseModel):
+  model_config = ConfigDict(
+    alias_generator=to_camel,
+    populate_by_name=True
+  )
+
+  version: str
+  game_mode: str
+  wipe_date: str  
+
+
+class Modpack(BaseModel):
+  model_config = ConfigDict(
+    alias_generator=to_camel,
+    populate_by_name=True
+  )
+
+  id: str
+  name: str
+  url: str
+  description: str
+  online: int
+  info: ServerInfo
+  mods: list[str]
 
 
 class FileType(str, Enum):

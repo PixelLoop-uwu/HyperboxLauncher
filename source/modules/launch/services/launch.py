@@ -5,7 +5,7 @@ from core.log_bridge import LogBridge
 from modules.launch import GameCommandService
 from modules.modpacks import ModpacksService
 from shared.schemas.auth import LaunchSession
-from shared.schemas.state import Settings
+from shared.schemas.settings import Settings
 
 
 class LauncherService:

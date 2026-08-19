@@ -1,17 +1,17 @@
 [project]
 name = "hyperbox-launcher"
 version = "0.1.0"
-description = "Add your description here"
+description = "Beautiful description"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "httpx>=0.28.1",
-    "pydantic>=2.13.4",
-    "pywebview>=6.2.1",
-    "pygobject>=3.56.3",
-    "pyside6>=6.11.1",
-    "qtpy>=2.4.3",
-    "loguru>=0.7.3",
-    "psutil>=7.2.2",
-    "aiofiles>=25.1.0",
+  "httpx>=0.28.1",
+  "pydantic>=2.13.4",
+  "pywebview>=6.2.1",
+  "pygobject>=3.56.3; sys_platform == 'linux'",
+  "pyside6>=6.11.1; sys_platform == 'linux'",
+  "qtpy>=2.4.3; sys_platform == 'linux'",
+  "loguru>=0.7.3",
+  "psutil>=7.2.2",
+  "aiofiles>=25.1.0",
 ]

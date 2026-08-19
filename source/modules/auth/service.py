@@ -4,7 +4,7 @@ from core.network import HttpClient
 from core.services import StateStorage
 from shared.schemas.auth import LaunchSession
 from shared.utils.security import get_hwid
-from .schemas import AuthPayload
+from shared.schemas.auth import AuthPayload
 
 
 class AuthService:

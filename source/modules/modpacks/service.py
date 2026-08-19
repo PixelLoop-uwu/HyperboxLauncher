@@ -11,10 +11,10 @@ from core.consts import consts
 from core.network import HttpClient
 from core.log_bridge import LogBridge
 from core.services import ModpacksCacheStorage
-from shared.schemas.modpack import ModpackManifest, FileManifest
+from shared.schemas.modpacks import ModpackManifest, FileManifest
 from shared.utils.path import resolve_absolute_file_path
 from .progress import DownloadProgressNotifier
-from .schemas.modpacks import Modpack
+from shared.schemas.modpacks import Modpack
 
 
 class ModpacksService:

@@ -3,7 +3,7 @@ from webview import FileDialog, Window
 from loguru import logger
 
 from core.services import StateStorage
-from shared.schemas.state import Settings
+from shared.schemas.settings import Settings
 
 
 class SettingsService:

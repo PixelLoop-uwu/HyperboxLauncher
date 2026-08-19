@@ -5,7 +5,7 @@ from pydantic import ValidationError
 from loguru import logger
 
 from core.consts import consts
-from shared.schemas.state import StateModel, RecentAuthCreds, Settings
+from shared.schemas.settings import StateModel, RecentAuthCreds, Settings
 
 
 class StateStorage:
