@@ -269,9 +269,8 @@ npm run dev
 With debug mode enabled by default, the launcher is expected to run in a desktop shell while the UI is served by the Vite dev server.
 
 ```bash
-cd launcher
-source .venv/bin/activate
-uv run  source/main.py
+cd ..
+uv run source/main.py
 ```
 
 The app points to the Vite login route in debug mode:
