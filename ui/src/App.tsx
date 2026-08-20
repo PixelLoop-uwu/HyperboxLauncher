@@ -17,12 +17,12 @@ import { queryClient } from '@/providers/queryClient';
 import ProtectedRoute from '@/providers/ProtectedRoute';
 
 import { useSettingsStore } from '@/store/useSettingsStore';
-import { useLauncherStore } from '@/store/useLauncherStore';
+import { useLaunchStore } from '@/store/useLaunchStore';
 
 
 export default function App() {
   const { isOpen, fetchSettings } = useSettingsStore();
-  const { status } = useLauncherStore();
+  const { status } = useLaunchStore();
 
   useEffect(() => {
     fetchSettings()

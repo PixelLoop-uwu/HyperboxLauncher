@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Loader2, ArrowUpRight, ShieldAlert, DownloadCloud, Clock, X } from 'lucide-react';
-import { useLauncherStore } from '@/store/useLauncherStore';
+import { useLaunchStore } from '@/store/useLaunchStore';
 import { fadeOverlayVariants, panelScaleUpVariants } from '@/constants/animationVariants';
 
 const formatSize = (bytes?: number) => {
@@ -27,7 +27,7 @@ const formatETA = (seconds?: number) => {
 };
 
 export default function ResourceLoaderOverlay() {
-  const { status, resourceProgress, error, resetLauncherState, cancelLaunch } = useLauncherStore();
+  const { status, resourceProgress, error, resetLaunchState, cancelLaunch } = useLaunchStore();
 
   const {
     statusText,
@@ -123,7 +123,7 @@ export default function ResourceLoaderOverlay() {
             {status !== 'error' ? 'Идет скачивание...' : 'Действие прервано'}
           </div>
           <button
-            onClick={status !== 'error' ? cancelLaunch : resetLauncherState}
+            onClick={status !== 'error' ? cancelLaunch : resetLaunchState}
             className={`flex items-center gap-1.5 px-8 py-2 rounded-xl text-xs font-semibold transition-all shadow-sm ${
               status !== 'error' 
                 ? 'bg-zinc-100 hover:bg-zinc-200 text-zinc-950' 

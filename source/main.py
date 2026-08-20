@@ -8,7 +8,7 @@ from web_bridge import WebViewApi
 
 
 def main():
-  setup_logging("DEBUG" if consts.DEBUG else "INFO")
+  setup_logging("INFO")
   sys.tracebacklimit = 0
 
   os_type = get_os_type()

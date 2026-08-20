@@ -13,4 +13,4 @@ class LaunchPlaceholders(BaseModel):
   selected_ram: int
 
   def to_replacement_map(self) -> dict[str, str]:
-    return {f"${k}": str(v) for k, v in self.model_dump().items()}
+    return {f"${{{k}}}": str(v) for k, v in self.model_dump().items()}

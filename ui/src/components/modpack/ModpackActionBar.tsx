@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Server, Loader2, ShieldAlert } from "lucide-react";
 
-import { useLauncherStore } from '@/store/useLauncherStore';
+import { useLaunchStore } from '@/store/useLaunchStore';
 import { useAuthStore } from '@/store/useAuthStore';
 
 type ModpackActionBarProps = {
@@ -10,7 +10,7 @@ type ModpackActionBarProps = {
 }
 
 export default function ModpackActionBar({ modpackName, onPlay }: ModpackActionBarProps) {
-  const { status } = useLauncherStore();
+  const { status } = useLaunchStore();
   const { user } = useAuthStore();
 
   const isBanned = user?.ban?.active;

@@ -1,25 +1,23 @@
 import { create } from 'zustand';
 import { getPywebviewApi } from '@/utils/pywebview';
-import type { gameLog, ResourceProgress } from '@/types/launch';
+import type { ResourceProgress } from '@/types/launch';
 
 
-type LauncherState = {
+type LaunchState = {
   status: "idle" | "launching" | "running" | "error";
   resourceProgress: ResourceProgress | null;
   error: string | null;
-  gameLogs: gameLog[];
 
   launchGame: (modpack_id: string) => Promise<void>;
   cancelLaunch: () => Promise<void>;
-  setLauncherError: (message: string) => void;
-  resetLauncherState: () => void;
+  setLaunchError: (message: string) => void;
+  resetLaunchState: () => void;
 }
 
-export const useLauncherStore = create<LauncherState>((set, get) => ({
+export const useLaunchStore = create<LaunchState>((set, get) => ({
   status: "idle",
   resourceProgress: null,
   error: null,
-  gameLogs: [],
 
   launchGame: async (modpack_id: string) => {
     const api = await getPywebviewApi();
@@ -61,7 +59,7 @@ export const useLauncherStore = create<LauncherState>((set, get) => ({
       set({ status: "error", error: errMsg, resourceProgress: null });
       throw err;
     } finally {
-      delete (window as any).onResourceLog;
+      delete window.onResourceLog;
     }
   },
 
@@ -70,28 +68,28 @@ export const useLauncherStore = create<LauncherState>((set, get) => ({
 
     try {
       await api.cancel_launch();
-      get().resetLauncherState()
+      get().resetLaunchState()
     } catch (err) {
       console.error("Ошибка при отмене запуска на стороне бэкенда:", err);
     }
   },
 
-  setLauncherError: (message: string) => {
+  setLaunchError: (message: string) => {
     set({ status: "error", error: message, resourceProgress: null });
     
     delete window.onResourceLog;
     delete window.onGameProcessTerminated;
   },
 
-  resetLauncherState: () => {
-    delete window.onResourceLog;
-    delete window.onGameProcessTerminated;
-
+  resetLaunchState: () => {
     set({ 
       status: "idle",
       resourceProgress: null, 
       error: null 
     });
+    
+    delete window.onResourceLog;
+    delete window.onGameProcessTerminated;
   },
 
 }));

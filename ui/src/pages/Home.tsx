@@ -8,16 +8,17 @@ import ModpackActionBar from '@/components/modpack/ModpackActionBar';
 import ModpackCard from '@/components/modpack/ModpackCard';
 import ModpackMain from '@/components/modpack/ModpackMain';
 import { useModpacks } from '@/hooks/useModpacks';
-import { useLauncherStore } from '@/store/useLauncherStore';
+import { useLaunchStore } from '@/store/useLaunchStore';
 import { useSettingsStore } from '@/store/useSettingsStore';
-import type { Modpack } from '@/types/modpack';
-import { useGameTrackerStore } from '@/store/useGameTrackerStore';
+import { useGameLogsStore } from '@/store/useGameLogsStore';
 import { listStaggerVariants } from '@/constants/animationVariants';
+import type { Modpack } from '@/types/modpack';
+
 
 export default function HomePage() {
-  const { launchGame } = useLauncherStore();
+  const { launchGame } = useLaunchStore();
   const { settings } = useSettingsStore();
-  const { initTracking } = useGameTrackerStore();
+  const { initTracking, clearLogs } = useGameLogsStore();
   const navigate = useNavigate();
 
   const { data: modpacks, isLoading, isError } = useModpacks();
@@ -30,6 +31,7 @@ export default function HomePage() {
     try {
       if (settings.debug) {
         initTracking();
+        clearLogs();
       }
 
       await launchGame(activeId);

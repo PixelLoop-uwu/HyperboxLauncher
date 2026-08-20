@@ -73,7 +73,6 @@ class LauncherService:
     payload = f"{session_token}\n".encode("utf-8")
     process.stdin.write(payload)
     await process.stdin.drain()
-    logger.debug("Session token was written to game stdin.")
 
   async def _monitor_process(
     self, 
@@ -85,7 +84,7 @@ class LauncherService:
       if process.stdout:
         tasks.append(self._read_stream(process.stdout, self.log_bridge.game_log))
       if process.stderr:
-        tasks.append(self._read_stream(process.stderr, self.log_bridge.game_log))
+        tasks.append(self._read_stream(process.stderr, self.log_bridge.game_error))
 
       tasks.append(process.wait())
       await asyncio.gather(*tasks)
@@ -93,9 +92,8 @@ class LauncherService:
       logger.info(f"Process {modpack_id} exited with code: {process.returncode}")
       self.log_bridge.game_log(f"Process {modpack_id} exited with code: {process.returncode}")
       
-      if hasattr(self.log_bridge, "game_terminated"):
-        exit_code = process.returncode if process.returncode is not None else 0
-        self.log_bridge.game_terminated(exit_code)
+      exit_code = process.returncode if process.returncode is not None else 0
+      self.log_bridge.game_terminated(exit_code)
 
     except asyncio.CancelledError:
       logger.info(f"Process monitoring for {modpack_id} was cancelled.")

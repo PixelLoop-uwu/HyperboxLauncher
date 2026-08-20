@@ -7,7 +7,7 @@ export type ResourceProgress = {
   speedKbps?: number;
 }
 
-export type gameLog = {
+export type GameLog = {
   type: "info" | "error" | "critical",
   message: string,
   timestamp: number

@@ -41,6 +41,9 @@ class LogBridge:
     json_string = json.dumps(json.dumps(log_data))
     self.window.evaluate_js(f"window.onGameLog(JSON.parse({json_string}))")
 
+  def game_error(self, message: str) -> None:
+    self.game_log(message, "error")
+
 
   def game_terminated(self, exit_code: int) -> None:
     self.window.evaluate_js(f"window.onGameProcessTerminated({exit_code})")
